@@ -1,0 +1,9 @@
+<div class="p-fluid main-container">
+    <div class="header">
+        <img src="assets/images/register.png" />
+        <div class="center-container header-text">Registrierung ({{stageNumber}}/3)</div>
+    </div>
+    <app-profile-person-new *ngIf="stageNumber===1" (changeStage)="changeStage($event)"></app-profile-person-new>
+    <app-profile-address-new *ngIf="stageNumber===2" (changeStage)="changeStage($event)"></app-profile-address-new>
+    <app-profile-contact-new *ngIf="stageNumber===3"></app-profile-contact-new>
+</div>

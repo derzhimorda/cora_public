@@ -1,0 +1,61 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @include sm {
+    margin-top: 80px;
+  }
+
+  @include md {
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+
+  img {
+    width: 36px;
+    margin-right: 12px;
+
+    @include md {
+      width: 128px;
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  .header-text {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.description {
+	margin-bottom: 64px;
+}
+
+input {
+  width: 40px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 4px solid #FDBF00;
+  outline: none;
+  text-align: center;
+  font-size: 24px;
+}
+
+.resend-button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #80C1F3;
+  padding: 0px !important;
+  text-align: left !important;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

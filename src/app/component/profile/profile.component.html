@@ -1,0 +1,74 @@
+<div class="main-container">
+  <div class="header">
+    <img src="assets/images/settings.png" />
+    <div class="center-container header-text">Profil</div>
+  </div>
+
+  <div class="profile-block-container">
+    <button class="btn" routerLink="person/edit"><i class="pi pi-pencil"></i></button>
+    <div class="p-d-flex">
+      <div class="profile-label-text">Vorname</div>
+      <div class="profile-value-text">{{model!.person!.firstName}}</div>
+    </div>
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Nachname</div>
+      <div class="profile-value-text">{{model!.person!.lastName}}</div>
+    </div>
+    <!-- <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Geschlecht</div>
+      <div class="profile-value-text">{{model!.person!.gender}}</div>
+    </div>
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Geburtsdatum</div>
+      <div class="profile-value-text">{{model!.person!.birthDate | date:"dd.MM.y"}}</div>
+    </div> -->
+  </div>
+
+  <div class="profile-block-container">
+    <button class="btn" routerLink="address/edit"><i class="pi pi-pencil"></i></button>
+    <div class="p-d-flex">
+      <div class="profile-label-text">Straße</div>
+      <div class="profile-value-text">{{model!.address?.street}}</div>
+    </div>
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Hausnummer</div>
+      <div class="profile-value-text">{{model!.address?.house}}</div>
+    </div>
+    <!-- <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Postleitzahl</div>
+      <div class="profile-value-text">{{model!.address?.zipCode}}</div>
+    </div> -->
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Stadt</div>
+      <div class="profile-value-text">{{model!.address?.city}}</div>
+    </div>
+    <!-- <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Bundesland</div>
+      <div class="profile-value-text">{{model!.address?.region}}</div>
+    </div>
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">Land</div>
+      <div class="profile-value-text">{{model!.address?.country}}</div>
+    </div> -->
+  </div>
+
+  <div class="profile-block-container">
+    <button class="btn" routerLink="contact/edit"><i class="pi pi-pencil"></i></button>
+    <div class="p-d-flex">
+      <div class="profile-label-text">Telefonnummer</div>
+      <div class="profile-value-text">{{model!.contact?.cellular}}</div>
+    </div>
+    <div class="p-d-flex" style="margin-top:18px">
+      <div class="profile-label-text">E-Mail</div>
+      <div class="profile-value-text">{{model!.contact?.email}}</div>
+    </div>
+    <!-- <div style="margin-top:18px">
+      <div class="profile-label-text">Passwort</div>
+      <div class="profile-value-text">{{password}}</div>
+    </div> -->
+  </div>
+
+  <div class="p-field center-container buttons-container">
+    <button class="orange-button" (click)="cancelClick()">Zurück</button>
+  </div>
+</div>

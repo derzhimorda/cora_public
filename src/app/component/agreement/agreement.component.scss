@@ -1,0 +1,52 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.scan-header-container {
+	background-color: #ebeef0;
+	border: 1px solid #a8c8d9;
+	border-radius: 20px;
+	width: 100%;
+	max-width: 350px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 18px 0;
+}
+
+.attension-text {
+	margin-bottom: 12px;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+.agreement-container, .agreement-container-body {
+	width: 100%;
+	padding: 0;
+	max-height: calc(100vh - 140px);
+	height: 100%;
+
+	@include md {
+		width: 100%;
+	}
+
+	@include lg {
+		width: 768px;
+	}
+
+	@include lg {
+		width: 992px;
+	}
+}
+
+.orange-button {
+	margin-bottom: 12px;
+
+	@include sm {
+		margin-bottom: 0;
+		margin-right: 12px;
+	}
+}

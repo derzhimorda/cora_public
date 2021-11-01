@@ -1,0 +1,55 @@
+<div class="p-fluid main-container p-col-12">
+  <div class="header">
+		<img src="assets/images/settings.png" />
+		<div class="center-container header-text">Profil bearbeiten</div>
+	</div>
+
+  <form [formGroup]="modelForm">
+    <div class="center-container">
+      <span class="p-float-label">
+          <input id="phoneInput" formControlName="phoneControl" maxlength="100"  type="text" class="small-input-container" pInputText [(ngModel)]="this.model.cellular" />
+          <label for="phoneInput">Telefonnummer</label>
+      </span>
+    </div>
+    <div class="center-container standard-indent">
+        <span class="p-float-label">
+            <input id="phoneAgainInput" formControlName="phoneAgainControl" maxlength="100"  type="text" class="small-input-container" pInputText [(ngModel)]="phoneAgain" />
+            <label for="phoneAgainInput">Telefonnummer (wiederholen)</label>
+        </span>
+    </div> 
+    <div class="center-container standard-indent">
+        <span class="p-float-label">
+            <input id="emailInput" formControlName="emailControl" maxlength="100"  type="text" class="small-input-container" pInputText [(ngModel)]="this.model.email" />
+            <label for="emailInput">E-Mail</label>
+        </span>
+    </div>
+    <div class="center-container standard-indent">
+        <span class="p-float-label">
+            <input id="emailAgainInput" formControlName="emailAgainControl" maxlength="100"  type="text" class="small-input-container" pInputText [(ngModel)]="emailAgain" />
+            <label for="emailAgainInput">E-Mail (wiederholen)</label>
+        </span>
+    </div>
+    <div class="center-container standard-indent">
+        <span class="p-float-label p-input-icon-right">
+          <i *ngIf="!showPassword" class="pi pi-eye"  (click)="showPassword=!showPassword"></i>
+          <i *ngIf="showPassword" class="pi pi-eye-slash"  (click)="showPassword=!showPassword"></i>
+          <input id="password" formControlName="passwordControl" maxlength="100"  [type]="passwordType" class="small-input-container" pInputText [(ngModel)]="this.model.password" />
+          <label for="password">Passwort</label>
+        </span>
+    </div>       
+    <div class="center-container standard-indent">
+      <span class="p-float-label p-input-icon-right">
+        <i *ngIf="!showPasswordAgain" class="pi pi-eye"  (click)="showPasswordAgain=!showPasswordAgain"></i>
+        <i *ngIf="showPasswordAgain" class="pi pi-eye-slash"  (click)="showPasswordAgain=!showPasswordAgain"></i>
+        <input id="passwordAgain" formControlName="passwordAgainControl" maxlength="100"  [type]="passwordAgainType" class="small-input-container" pInputText [(ngModel)]="passwordAgain" />
+        <label for="passwordAgain">Passwort (wiederholen)</label>
+      </span>
+    </div> 
+    <div class="center-container" style="margin-top:15px">
+      <button class="orange-button" [class.button-disabled]="isPressed" (click)="saveClick()">Speichern</button>
+    </div>
+    <div class="center-container" style="margin-top:10px">
+      <button class="white-button" [class.button-disabled]="isPressed" routerLink="/profile">Abbrechen</button>
+    </div> 
+  </form>
+</div>

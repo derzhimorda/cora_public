@@ -1,0 +1,33 @@
+.scan-header-container {
+  background-color: #ebeef0;
+  border: 1px solid #a8c8d9;
+  border-radius: 20px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15px 0;
+  margin-bottom: 15px;
+}
+
+.attension-text {
+  margin-bottom: 16px;
+}
+
+.image-container {
+  margin-bottom: 10px;
+
+  img {
+    width: 230px;
+  }
+}
+
+.spinner-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

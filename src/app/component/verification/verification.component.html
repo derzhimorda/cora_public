@@ -1,0 +1,39 @@
+<div class="p-fluid main-container p-col-12">
+  <p-progressSpinner *ngIf="isPressed" styleClass="custom-spinner"></p-progressSpinner>
+
+  <div class="header">
+    <img src="assets/images/verify.png" />
+    <div class="center-container header-text">Verifizierung</div>
+  </div>
+
+  <div class="center-container regular-text description">
+    Bitte geben Sie den Bestätigungscode ein, den Sie per SMS erhalten haben
+  </div>
+
+  <form [formGroup]="modelForm">
+    <div class="center-container p-d-flex p-jc-between">
+      <div>
+        <input id="input1" (input)="changeInput('input2')" type="text" formControlName="value1Control" [(ngModel)]="model.value1" maxlength="1" />
+      </div>
+      <div>
+        <input id="input2" (input)="changeInput('input3')" type="text" formControlName="value2Control" [(ngModel)]="model.value2" maxlength="1"/>
+      </div>
+      <div>
+        <input id="input3" (input)="changeInput('input4')" type="text" formControlName="value3Control" [(ngModel)]="model.value3" maxlength="1" />
+      </div>
+      <div>
+        <input id="input4" type="text" formControlName="value4Control" [(ngModel)]="model.value4" maxlength="1" />
+      </div>
+    </div>
+    <div class="p-field center-container regular-text" style="margin-top:35px">
+      Wenn Sie keinen Code haben
+    </div>
+    <button class="resend-button" style="font-size: 15px !important" [class.button-disabled]="isPressed" (click)="resendClick()">Code erneut senden</button>
+    <div class="p-field center-container" style="margin-top:35px">
+      <button class="orange-button" [class.button-disabled]="isPressed" (click)="confirmClick()">Bestätigen</button>
+    </div>
+    <div class="p-field center-container" style="margin-top:20px">
+      <button class="white-button" [class.button-disabled]="isPressed" routerLink="/login">Abbrechen</button>
+    </div>
+  </form>
+</div>

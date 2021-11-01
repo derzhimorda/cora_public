@@ -1,0 +1,90 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.main-container {
+	width: 100%;
+	
+	
+
+	@include xs {
+		width: 300px;
+	}
+}
+
+.profile-block-container div {
+	text-align: left;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 32px;
+
+	@include sm {
+		margin-top: 0px;
+	}
+
+	@include md {
+		flex-direction: column;
+		margin-bottom: 48px;
+	}
+
+	img {
+		width: 36px;
+		margin-right: 12px;
+
+		@include md {
+			width: 128px;
+			margin-right: 0;
+			margin-bottom: 24px;
+		}
+	}
+
+	.header-text {
+		font-size: 24px;
+		font-weight: 700;
+	}
+}
+
+.profile-block-container {
+  position: relative;
+  padding: 20px 15px;
+  background: #ffffff;
+  border: 1px solid #a8c8d9;
+  box-sizing: border-box;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 280px;
+
+	@include xs {
+		max-width: 320px;
+	}
+
+	@include sm {
+		width: 350px;
+	}
+}
+
+.profile-block-container .btn {
+  position: absolute;
+  top: 0%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #a8c8d9;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+
+	@include xs {
+		width: 58px;
+  height: 58px;
+	}
+}
+
+.profile-block-container {
+	margin-bottom: 34px;
+}

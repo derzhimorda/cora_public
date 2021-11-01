@@ -1,0 +1,52 @@
+<div class="main-container">
+  <p-progressSpinner *ngIf="isPressed" styleClass="custom-spinner"></p-progressSpinner>
+
+  <div class="header">
+    <img src="assets/images/login.jpg" />
+    <div class="center-container header-text">CORA</div>
+  </div>
+
+  <form [formGroup]="modelForm" class="login-form">
+    <div class="input-container large">
+      <div class="icon-container user-icon">
+        <input type="text" formControlName="loginControl" class="input" pInputText
+          placeholder="E-Mail oder Telefonnummer" [(ngModel)]="model.name" />
+      </div>
+    </div>
+
+    <div class="input-container large">
+      <div class="icon-container password-icon">
+        <input [type]="passwordType" pPassword formControlName="passwordControl" class="input" placeholder="Passwort"
+          [(ngModel)]="model.password">
+        <i *ngIf="!showPassword" class="pi pi-eye" (click)="showPassword=!showPassword"></i>
+        <i *ngIf="showPassword" class="pi pi-eye-slash" (click)="showPassword=!showPassword"></i>
+      </div>
+    </div>
+
+    <div class="additional-buttons-container">
+      <div class="p-field-checkbox">
+        <p-checkbox name="rememberMe" formControlName="rememberMeControl" value="true" [(ngModel)]="rememberMe"
+          inputId="rememberMe">
+        </p-checkbox>
+        <label for="rememberMe">Eingeloggt bleiben</label>
+      </div>
+      <p-button styleClass="p-button-link" [class.button-disabled]="isPressed" routerLink="/forgotpassword"
+          label="Passwort vergessen?"></p-button>
+    </div>
+
+    <div class="button-container">
+      <button class="orange-button" [class.button-disabled]="isPressed" (click)="loginClick()">Einloggen</button>
+    </div>
+  </form>
+
+  <div class="p-d-flex p-d-col p-jc-between center-container">
+    <div style="font-weight: 700; margin-top: 12px;">
+      <label style="font-weight:700">Noch nicht registriert?</label>
+    </div>
+    <div>&nbsp;</div>
+    <div style="font-weight:700">
+      <p-button styleClass="p-button-link" [class.button-disabled]="isPressed" label="Registrieren"
+        routerLink="/profile/new"></p-button>
+    </div>
+  </div>
+</div>

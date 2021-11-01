@@ -1,0 +1,48 @@
+<form [formGroup]="modelForm">
+    <div class="center-container">
+        <span class="p-float-label">
+            <input id="firstNameInput" formControlName="firstNameControl" maxlength="100" type="text"
+                class="small-input-container" pInputText [(ngModel)]="model.firstName" />
+            <label for="firstNameInput">Vorname</label>
+        </span>
+    </div>
+    <div class="center-container standard-indent">
+        <span class="p-float-label">
+            <input id="lastNameInput" formControlName="lastNameControl" maxlength="100" type="text"
+                class="small-input-container" pInputText [(ngModel)]="model.lastName" />
+            <label for="lastNameInput">Nachname</label>
+        </span>
+    </div>
+    <div class="center-container standard-indent">
+        <div class="label">Geschlecht</div>
+        <select formControlName="genderControl" class="small-input-container" [(ngModel)]="model.gender">
+            <option *ngFor="let gender of genders" [ngValue]="gender">{{gender}}</option>
+        </select>
+    </div>
+    <div class="center-container standard-indent">
+        <span class="p-float-label">
+            <p-calendar id="calendar" formControlName="birthDateControl" dateFormat="dd.mm.yy"
+                [(ngModel)]="model.birthDate" [monthNavigator]="true" [yearNavigator]="true"
+                [yearRange]="dateRange"></p-calendar>
+            <label for="calendar">Geburtsdatum</label>
+        </span>
+    </div>
+    <div class="p-field-checkbox center-container" style="margin-top:22px">
+        <p-checkbox id="acceptAgreement" formControlName="acceptAgreementControl" [(ngModel)]="acceptAgreement"
+            [binary]="true"></p-checkbox>
+        <label for="acceptAgreement">Ich akzeptiere die <a class="link link--decorated"
+                (click)="redirectClick('agreement')">Nutzungsbedingungen</a></label>
+    </div>
+    <div class="p-field-checkbox center-container" style="margin-top:0.6rem">
+        <p-checkbox id="acceptDataShare" formControlName="acceptDataShareControl" [(ngModel)]="acceptSharedData"
+            [binary]="true"></p-checkbox>
+        <label for="acceptDataShare">Ich akzeptiere die <a class="link link--decorated"
+                (click)="redirectClick('sharedata')">Datenschutzerklärung</a></label>
+    </div>
+    <div class="center-container" style="margin-top:22px">
+        <button class="orange-button" [class.button-disabled]="isPressed" (click)="nextClick()">Weiter</button>
+    </div>
+    <div class="center-container" style="margin-top:10px">
+        <button class="white-button" [class.button-disabled]="isPressed" (click)="cancelClick()">Abbrechen</button>
+    </div>
+</form>

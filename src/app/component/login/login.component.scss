@@ -1,0 +1,68 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @include sm {
+    margin-top: 80px;
+  }
+
+  @include md {
+    flex-direction: column;
+    margin-bottom: 48px;
+  }
+
+  img {
+    width: 36px;
+    margin-right: 12px;
+
+    @include md {
+      width: 128px;
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  .header-text {
+    font-size: 24px;
+    font-weight: 700;
+  }
+}
+
+.login-form {
+  margin-bottom: 36px;
+
+  @include sm {
+    width: 370px;
+  }
+}
+
+.additional-buttons-container {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @include sm {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+.p-field-checkbox {
+  margin-bottom: 12px;
+
+  @include sm {
+    margin-top: 4px;
+    margin-bottom: 0;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}

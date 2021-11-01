@@ -1,0 +1,20 @@
+.sizes {
+  .p-inputtext {
+    display: block;
+    margin-bottom: .5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.p-field * {
+  display: block;
+}
+
+.main-component {
+  padding: 10px;
+  height: 100%;
+  min-height: 100vh;
+}

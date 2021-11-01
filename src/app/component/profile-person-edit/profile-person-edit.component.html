@@ -1,0 +1,46 @@
+<div class="p-fluid main-container p-col-12">
+  <div class="header">
+		<img src="assets/images/settings.png" />
+		<div class="center-container header-text">Profil bearbeiten</div>
+	</div>
+
+  <form [formGroup]="modelForm">
+    <div class="center-container">
+      <span class="p-float-label">
+        <input id="firstNameInput" formControlName="firstNameControl" maxlength="100" type="text"
+          class="small-input-container" pInputText [(ngModel)]="model.firstName" />
+        <label for="firstNameInput">Vorname</label>
+      </span>
+    </div>
+
+    <div class="center-container standard-indent">
+      <span class="p-float-label">
+        <input id="lastNameInput" formControlName="lastNameControl" maxlength="100" type="text"
+          class="small-input-container" pInputText [(ngModel)]="model.lastName" />
+        <label for="lastNameInput">Nachname</label>
+      </span>
+    </div>
+
+    <div class="center-container standard-indent">
+      <div class="label">Geschlecht</div>
+      <select formControlName="genderControl" class="small-input-container" (change)="changeGender($event)">
+        <option *ngFor="let gender of genders" [ngValue]="gender" [selected]="isGenderSelected(gender)">{{gender}}</option>
+      </select>
+    </div>
+
+    <div class="center-container standard-indent">
+      <span class="p-float-label">
+        <p-calendar id="calendar" formControlName="birthDateControl" dateFormat="dd.mm.yy" [(ngModel)]="model.birthDate"
+          [monthNavigator]="true" [yearNavigator]="true" [yearRange]="dateRange"></p-calendar>
+        <label for="calendar">Geburtsdatum</label>
+      </span>
+    </div>
+
+    <div class="p-field center-container" style="margin-top:91px">
+      <button class="orange-button" [class.button-disabled]="isPressed" (click)="saveClick()">Speichern</button>
+    </div>
+    <div class="p-field center-container" style="margin-top:20px">
+      <button class="white-button" [class.button-disabled]="isPressed" routerLink="/profile">Abbrechen</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<div class="main-container">
+  <div *ngIf="isPressed" class="spinner-container">
+    <p-progressSpinner styleClass="custom-spinner"></p-progressSpinner>
+  </div>
+
+  <div class="p-d-flex p-flex-column p-ai-center p-field scan-header-container">
+    <div class="attension-text">
+      QR-Code scannen
+    </div>
+    <div class="regular-text">
+      ID {{lotNumber}}
+    </div>
+  </div>
+
+  <div id="imageContainer" class="image-container">
+    <img src="assets/scan.jpg" />
+    <div *ngIf="!!startedScanning" class="regular-text" style="margin-top: 40px">
+      {{cameraProblemResult}}
+    </div>
+  </div>
+
+  <div id="cameraContainer" class="center-container">
+    <canvas style="width:230px; height:230px"></canvas>
+  </div>
+  <div *ngIf="!startedScanning" class="center-container">
+    <button class="orange-button" (click)="scanClick()">Scannen</button>
+  </div>
+  <div *ngIf="startedScanning" class="center-container" style="margin-top:10px">
+    <button class="white-button"(click)="cancelClick()" routerLink="/check-in">Zurück</button>
+  </div>
+  <div *ngIf="!startedScanning">
+    <div class="center-container" style="margin-top:10px">
+      <button class="white-button" routerLink="/profile">Einstellungen</button>
+    </div>
+    <div class="center-container" style="margin-top:10px">
+      <button class="white-button" routerLink="/vaccine">Mein Impfpass</button>
+    </div>
+    <div class="center-container" style="font-weight: 700; margin-top:10px">
+      <p-button styleClass="p-button-link" [class.button-disabled]="isPressed"  label="Ausloggen" (click)="logoutClick()"></p-button>
+    </div>
+  </div>
+</div>

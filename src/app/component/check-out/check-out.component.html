@@ -1,0 +1,35 @@
+<div class="p-fluid main-container p-col-12">
+  <div class="center-container">
+    <img src="assets/checkin.png" />
+  </div>
+  <div class="p-field center-container attension-text">
+    Eingeloggt
+  </div>
+  <div class="p-d-flex" style="margin-top:65px">
+    <div style="width:40px">
+      <img src="../../../assets/addr.png" />
+    </div>
+    <div style="padding-left:20px; font-size:15px; font-weight:500">
+      <b>{{model.name}}</b><br /> {{model.address}} <br /> {{model.zipCode}} {{model.city}}
+    </div>
+  </div>
+  <div class="p-d-flex" style="margin-top:35px">
+    <div style="width:40px">
+      <img src="../../../assets/clock.png" />
+    </div>
+    <div style="padding-left:20px; font-size:15px">
+      <b>Öffnungszeiten</b><br />{{model.timeWork.hours}} Stunde {{model.timeWork.minutes}} Minuten
+    </div>
+  </div>
+  <div class="p-d-flex" style="margin-top:35px">
+    <div style="width:40px">
+      <img src="../../../assets/calendar.png" />
+    </div>
+    <div style="padding-left:20px; font-size:15px">
+      <b>Zeitprüfung</b><br />{{model.timeCheck | date:"dd LLLL hh:mm"}}
+    </div>
+  </div>
+  <div class="p-field center-container" style="margin-top:65px">
+    <button class="orange-button" [class.button-disabled]="isPressed" (click)="checkOutClick()">Auschecken</button>
+  </div>
+</div>

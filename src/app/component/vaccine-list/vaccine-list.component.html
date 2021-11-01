@@ -1,0 +1,118 @@
+<div class="p-fluid main-container p-col-12">
+	<div class="header">
+		<img src="assets/images/vaccine.svg" />
+		<div class="center-container header-text">Impfpass</div>
+	</div>
+
+	<div *ngIf="!hasSelectedModel" class="wrapper__container--body">
+		<div class="status">
+			<div class="status__icon">
+				<img [src]="statusIcon" alt="" />
+			</div>
+			<span class="text">COVID19</span>
+		</div>
+		<div class="container">
+			<div class="lists-container">
+				<div id="inactive" class="list open">
+					<div class="list__header" (click)="toggle('inactive')">
+						<span>Kein ausreichender </span>
+						<br>
+						<span>Impfschutz</span>
+					</div>
+					<div class="list__body">
+						<ul>
+							<li *ngFor="let item of model.notActive">
+								<div class="list-item" (click)="clickVaccine(item.guid)">
+									<div class="list-item__icon">
+										<img src="assets/attention.svg" alt="" />
+									</div>
+									<div class="list-item__body">
+										<span class="title">{{item.title}}</span>
+										<span *ngIf="item.repeatOn" class="description">wiederholen auf {{item.repeatOn | date:
+											'd.MM.yyyy'}}</span>
+										<div class="arrow-right"></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="active" class="list open">
+					<div class="list__header" (click)="toggle('active')">
+						<span>Aktiver Impfschutz</span>
+					</div>
+					<div class="list__body">
+						<ul>
+							<li *ngFor="let item of model.active">
+								<div class="list-item" (click)="clickVaccine(item.guid)">
+									<div class="list-item__icon">
+										<img src="assets/check.svg" alt="" />
+									</div>
+									<div class="list-item__body">
+										<span class="title">{{item.title}}</span>
+										<span *ngIf="item.recordOn" class="description date">{{item.recordOn | date: 'd.MM.yyyy'}}</span>
+										<div class="arrow-right"></div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="test" class="list open">
+					<div class="list__header" (click)="toggle('test')">
+						<span>Aktiver Tests</span>
+					</div>
+					<div class="list__body">
+						<ul>
+							<li *ngFor="let item of model.testList">
+								<div class="list-item">
+									<div class="list-item__icon">
+										<img [src]="getTestIcon(item.isActive)" alt="" />
+									</div>
+									<div class="list-item__body">
+										<span class="title">{{item.title}}</span>
+										<span *ngIf="item.recordOn" class="description date">{{item.recordOn | date: 'd.MM.yyyy, HH:mm'}}</span>
+										<span *ngIf="item.duration" class="description">Dauer: {{item.duration}} hours</span>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="hasSelectedModel" class="wrapper__container--body">
+		<div class="container">
+			<div class="profile">
+				<div class="profile__wrapper">
+					<div class="profile-item">
+						<div class="profile-item__title">Arztpraxis</div>
+						<div class="profile-item__value">
+							<strong>{{selectedModel?.doctor?.title}}</strong> <br />
+							{{selectedModel.doctor?.address?.city}}, {{selectedModel.doctor?.address?.street}},
+							{{selectedModel.doctor?.address?.house}}
+						</div>
+					</div>
+					<div class="profile-item">
+						<div class="profile-item__title">Wirkstoff</div>
+						<div class="profile-item__value">{{selectedModel.title}}</div>
+					</div>
+					<div class="profile-item">
+						<div class="profile-item__title">Datum der Impfung</div>
+						<div class="profile-item__value">{{selectedModel.recordOn | date: 'd.MM.yyyy'}}</div>
+					</div>
+					<div *ngIf="selectedModel.repeatOn" class="profile-item">
+						<div class="profile-item__title">Datum der Auffrishung</div>
+						<div class="profile-item__value">{{selectedModel.repeatOn | date: 'd.MM.yyyy'}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="p-field center-container">
+		<button class="orange-button" (click)="okClick()">Zurück</button>
+	</div>
+</div>

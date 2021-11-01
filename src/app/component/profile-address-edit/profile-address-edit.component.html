@@ -1,0 +1,58 @@
+<div class="p-fluid main-container p-col-12">
+	<div class="header">
+		<img src="assets/images/settings.png" />
+		<div class="center-container header-text">Profil bearbeiten</div>
+	</div>
+
+	<form [formGroup]="modelForm">
+		<div class="center-container">
+			<span class="p-float-label">
+				<input id="streetInput" formControlName="streetControl" maxlength="100" type="text"
+					class="small-input-container" pInputText [(ngModel)]="model.street" />
+				<label for="streetInput">Straße</label>
+			</span>
+		</div>
+		<div class="center-container standard-indent">
+			<span class="p-float-label">
+				<input id="houseInput" formControlName="houseControl" maxlength="10" type="text" class="small-input-container"
+					pInputText [(ngModel)]="model.house" />
+				<label for="houseInput">Hausnummer</label>
+			</span>
+		</div>
+		<div class="center-container standard-indent">
+			<span class="p-float-label">
+				<input id="zipInput" formControlName="zipControl" maxlength="20" type="text" class="small-input-container"
+					pInputText [(ngModel)]="model.zipCode" />
+				<label for="zipInput">Postleitzahl</label>
+			</span>
+		</div>
+		<div class="center-container standard-indent">
+			<span class="p-float-label">
+				<input id="cityInput" formControlName="cityControl" maxlength="100" type="text" class="small-input-container"
+					pInputText [(ngModel)]="model.city" />
+				<label for="cityInput">Stadt</label>
+			</span>
+		</div>
+		<div class="center-container standard-indent">
+			<span class="p-float-label">
+				<input id="regionInput" formControlName="regionControl" maxlength="100" maxlength="100" type="text"
+					class="small-input-container" pInputText [(ngModel)]="model.region" />
+				<label for="regionInput">Bundesland</label>
+			</span>
+		</div>
+		<div class="center-container standard-indent">
+			<span class="p-float-label">
+				<input id="countryInput" formControlName="countryControl" maxlength="100" type="text"
+					class="small-input-container" pInputText [(ngModel)]="model.country" />
+				<label for="countryInput">Land</label>
+			</span>
+		</div>
+
+		<div class="center-container" style="margin-top:15px">
+			<button class="orange-button" [class.button-disabled]="isPressed" (click)="saveClick()">Speichern</button>
+		</div>
+		<div class="center-container" style="margin-top:10px">
+			<button class="white-button" [class.button-disabled]="isPressed" routerLink="/profile">Abbrechen</button>
+		</div>
+	</form>
+</div>
